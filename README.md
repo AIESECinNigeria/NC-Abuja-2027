@@ -9,7 +9,9 @@ Baserona, SuperRichExpanded, Artegra
 ## Others to note:
 
 Images folder created in Public folder
+
 Tailwind import added to index.css
+
 Font faces added to index.css
 
 
