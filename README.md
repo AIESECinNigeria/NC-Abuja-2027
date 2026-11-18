@@ -1,6 +1,6 @@
 ## Installed Node Modules
 
-Tailwind CSS, Lucide, Lucide React, Framer Motion
+Tailwind CSS, Lucide, Lucide React, Framer Motion, react-router, react-router-dom, react-dom, react-hook-form, axios
 
 ## Fonts saved in Public folder
 

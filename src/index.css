@@ -3,20 +3,31 @@
 @font-face {
   font-family: 'Baserona';
   font-style: normal;
-  font-weight: 200 700;
+  font-weight: 400;
   font-display: swap;
-  src: url("/public/fonts/Baserona.ttf") format("truetype");
+  src: url("/fonts/Baserona.ttf") format("truetype");
 }
 @font-face {
   font-family: 'SuperRichExpanded';
   font-style: normal;
-  font-weight: 200 700;
+  font-weight: 400;
   font-display: swap;
-  src: url("/public/fonts/SuperRichExpanded_Stretch.otf") format("opentype");
+  src: url("/fonts/SuperRichExpanded_Stretch.otf") format("opentype");
+}
+@font-face {
+  font-family: 'ArtegraLight';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/Artegra_Demo_Fonts/Fontspring-DEMO-artegra_sans-300-light.otf") format("opentype");
 }
 @theme {
   --font-baserona: "Baserona", sans-serif;
   --font-superRichExpanded: "SuperRichExpanded", sans-serif;
+  --font-stretch-v4: "SuperRichExpanded", sans-serif;
+  --font-stretch-v4--font-feature-settings: "liga";
+  --font-artegraLight: "ArtegraLight", sans-serif;
+  --spacing: 10px;
 }
 /* :root {
   --text: #6b6375;
