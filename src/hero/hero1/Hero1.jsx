@@ -1,11 +1,22 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { useBlockTransition } from '../../components/TransitionContext'
 import styles from './Hero1.module.css'
 
 const Hero1 = () => {
+  
+  const { navigateWithBlocks } = useBlockTransition();
+
+  const handleLinkClick = (e, path) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    navigateWithBlocks(path);
+  };
+
   return (
     <div className={`${styles.container} py-4 flex flex-col relative overflow-hidden z-3 `}>
       {/* red banner */}
-      <div className='bg-linear-to-r from-[#EC0303] to-[#3F0909] py-1 px-2 sm: px-4 flex justify-between items-center text-white text-[20px] z-3 '>
+      <div className='bg-linear-to-r from-[#EC0303] to-[#3F0909] py-1 px-2 sm:px-4 flex justify-between items-center text-white text-[20px] z-3 '>
         <p className='font-artegraLight '>PURPOSE</p>
         <p className='leading-3 '>{">>"}</p>
         <p className='font-artegraLight '>IN</p>
@@ -14,7 +25,7 @@ const Hero1 = () => {
       </div>
 
       {/* first text */}
-      <div className='max-w-33 sm:max-w-100 px-2 sm: px-4 py-2 whitespace-pre-wrap text-white text-[15px] text-justify sm:text-[32px] font-baserona z-3 '>
+      <div className='max-w-33 sm:max-w-100 px-2 sm:px-4 py-2 whitespace-pre-wrap text-white text-[15px] text-justify sm:text-[32px] font-baserona z-3 '>
         <p>For those strong enough to keep their eyes and mind on the <span className='text-[#EC0303]'>purpose</span> while moving with <span className='text-[#EC0303]'>speed.</span></p>
         {/* <p>For   those   strong   enough   to   keep   their   eyes   and   mind   on   the   purpose   while   moving   with   speed.</p> */}
       </div>
@@ -44,7 +55,9 @@ const Hero1 = () => {
         <div className='mt-3 flex items-center gap-0 h-[49px] lg:h-[70px] w-full '>
           <img src='/images/cta.png' alt='flag' className='hidden lg:block object-cover h-[70px] ' />
           <img src='/images/ctamob.png' alt='flag' className='block lg:hidden object-cover h-[49px] ' />
-          <button className='bg-[#EC0303] h-full w-full p-1 flex items-center justify-center text-white text-[16px] lg:text-[24px] font-baserona font-light '>GET ON THE GRID</button>
+          <Link to='/hero-two' onClick={(e) => handleLinkClick(e, '/hero-two')} className='bg-[#EC0303] hover:bg-white h-full w-full p-1 flex items-center justify-center text-white hover:text-[#EC0303] text-[16px] lg:text-[24px] font-baserona font-light '>
+            GET ON THE GRID
+          </Link>
         </div>
       </div>
 
@@ -52,6 +65,9 @@ const Hero1 = () => {
       <div className='h-55 lg:h-auto absolute bottom-4 z-1 '>
         <img src='/images/carimg.png' alt='car' className='h-[100%] lg:h-auto w-full lg:w-[80%] object-cover object-[75%] lg:object-left ' />
       </div>
+
+      
+
     </div>
   )
 }

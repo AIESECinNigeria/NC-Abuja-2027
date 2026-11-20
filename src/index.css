@@ -28,6 +28,42 @@
   --font-stretch-v4--font-feature-settings: "liga";
   --font-artegraLight: "ArtegraLight", sans-serif;
   --spacing: 10px;
+  --animate-loop: loop 1s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop2: loop2 2s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop2 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop3: loop3 0.7s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop3 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop4: loop4 2.5s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop4 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 /* :root {
   --text: #6b6375;

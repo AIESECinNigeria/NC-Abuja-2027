@@ -1,0 +1,35 @@
+.container {
+    background: url('/images/bg-texture.png');
+    background-size: cover;
+    background-color: black;
+    min-height: 100dvh;
+    width: 100%;
+}
+
+.loopWrapper {
+    overflow: hidden;
+    height: 680px;
+    display: flex;
+    flex-direction: column;
+}
+.loopWrapper2 {
+    display: none;
+}
+
+.loopTrack {
+    display: flex;
+    height: max-content;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .loopWrapper {
+        display: none;
+    }
+    .loopWrapper2 {
+        overflow: hidden;
+        height: 680px;
+        display: flex;
+        flex-direction: column;
+    }
+}
