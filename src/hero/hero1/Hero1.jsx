@@ -63,7 +63,7 @@ const Hero1 = () => {
 
       {/* car */}
       <div className='h-55 lg:h-auto absolute bottom-4 z-1 '>
-        <img src='/images/carimg.png' alt='car' className='h-[100%] lg:h-auto w-full lg:w-[80%] object-cover object-[75%] lg:object-left ' />
+        <img src='/images/carimg.png' alt='car' className='h-[100%] lg:h-auto w-full lg:w-[80%] object-cover object-[75%] lg:object-left animate-slideUp ' />
       </div>
 
       

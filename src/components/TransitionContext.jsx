@@ -25,12 +25,12 @@ export function TransitionProvider ({ children }) {
     setTimeout(() => {
       navigate(to);
       window.scrollTo(0,0);
-    }, 600)
+    }, 700)
 
     //revealing the new page after the page has been navigated to.
     setTimeout(() => {
       setIsActive(false);
-    }, 1150);
+    }, 1350);
   }
 
   return (

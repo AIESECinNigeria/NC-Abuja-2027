@@ -57,7 +57,7 @@ const Hero4 = () => {
             <div className='mt-3 flex items-center gap-0 h-[49px] lg:h-[70px] w-full '>
             <img src='/images/ctaWhite.png' alt='flag' className='hidden lg:block object-cover h-[70px] ' />
             <img src='/images/ctawSmall.png' alt='flag' className='block lg:hidden object-cover h-[49px] ' />
-            <Link to='/hero-two' onClick={(e) => handleLinkClick(e, '/hero-two')} className='hover:bg-[#EC0303] bg-white h-full w-full p-1 flex items-center justify-center hover:text-white text-[#EC0303] text-[16px] lg:text-[24px] font-baserona font-light '>
+            <Link to='/' onClick={(e) => handleLinkClick(e, '/')} className='hover:bg-[#EC0303] bg-white h-full w-full p-1 flex items-center justify-center hover:text-white text-[#EC0303] text-[16px] lg:text-[24px] font-baserona font-light '>
                 START RACE
             </Link>
             </div>
@@ -65,7 +65,7 @@ const Hero4 = () => {
 
         {/* car */}
         <div className='w-full h-[50%] lg:h-[70%] absolute bottom-0 z-1 flex '>
-            <img src='/images/smoke4.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline ' />
+            <img src='/images/smoke4.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline animate-slideUp ' />
         </div>
     </div>
   )

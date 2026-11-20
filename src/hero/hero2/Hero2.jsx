@@ -33,7 +33,7 @@ const Hero2 = () => {
         // Automatically transitions after 4 seconds
         const timer = setTimeout(() => {
         navigateWithBlocks('/hero-three');
-        }, 4500);
+        }, 3500);
 
         return () => clearTimeout(timer); // Clean up if user leaves early
     }, [navigateWithBlocks]);
