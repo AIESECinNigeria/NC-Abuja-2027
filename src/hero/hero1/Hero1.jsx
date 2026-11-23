@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { useBlockTransition } from '../../components/TransitionContext'
-import styles from './Hero1.module.css'
+import styles from './hero1.module.css'
 
 const Hero1 = () => {
   

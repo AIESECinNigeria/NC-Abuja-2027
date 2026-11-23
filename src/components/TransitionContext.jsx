@@ -1,7 +1,7 @@
 import React, { Children } from 'react'
 import { useState, useMemo, useContext, createContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import styles from '../hero/hero1/Hero1.module.css'
+import styles from '../hero/hero1/hero1.module.css'
 
 const TransitionContext = createContext();
 
