@@ -67,7 +67,7 @@ const Hero1 = () => {
       </div>
 
       {/* car */}
-      <div className='h-55 lg:h-auto absolute bottom-4 z-1 '>
+      <div className='h-55 lg:h-auto absolute bottom-0 z-1 '>
         <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795551370/carimg_qr1mx3.png' alt='car' className='h-[100%] lg:h-auto w-full lg:w-[80%] object-cover object-[90%] lg:object-left animate-slideUp ' />
       </div>
 
