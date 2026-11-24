@@ -5,35 +5,35 @@ import styles from './Hero2.module.css'
 
 const Hero2 = () => {
     const imagesA= [
-        "/images/a/a1.png", "/images/a/a2.png", "/images/a/a3.png", "/images/a/a4.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a1_cywm9c.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a2_j7vwvm.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a3_fckaya.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a4_r9jdja.png"
     ]
     const imagesB= [
-        "/images/b/b1.png", "/images/b/b2.png", "/images/b/b3.png", "/images/b/b4.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550848/b1_vhvko0.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b2_tdhvzg.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b3_jfesdn.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550847/b4_hs8fci.png"
     ]
     const imagesC= [
-        "/images/c/c1.png", "/images/c/c2.png", "/images/c/c3.png", "/images/c/c4.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c1_pg12gr.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c2_t9d0mj.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550970/c3_q49a0k.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550968/c4_wvs8gm.png"
     ]
     const imagesD= [
-        "/images/d/d1.png", "/images/d/d2.png", "/images/d/d3.png", "/images/d/d4.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d1_qxhkkr.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d2_gssayk.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551002/d3_yidq3z.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d4_dysss0.png"
     ]
 
     const imagesA2= [
-        "/images/a/a1.png", "/images/a/a2.png", "/images/a/a3.png", "/images/a/a4.png", "/images/d/d4.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a1_cywm9c.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a2_j7vwvm.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a3_fckaya.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a4_r9jdja.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d4_dysss0.png"
     ]
     const imagesB2= [
-        "/images/d/d2.png", "/images/b/b2.png", "/images/b/b3.png", "/images/b/b4.png", "/images/b/b1.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d2_gssayk.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b2_tdhvzg.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b3_jfesdn.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550847/b4_hs8fci.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550848/b1_vhvko0.png"
     ]
     const imagesC2= [
-        "/images/c/c1.png", "/images/c/c2.png", "/images/c/c4.png", "/images/c/c3.png", "/images/d/d1.png"
+        "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c1_pg12gr.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c2_t9d0mj.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550968/c4_wvs8gm.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795550970/c3_q49a0k.png", "https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d1_qxhkkr.png"
     ]
 
     const { navigateWithBlocks } = useBlockTransition();
 
     useEffect(() => {
-        // Automatically transitions after 4 seconds
+        // Automatically transitions after 4.5 seconds
         const timer = setTimeout(() => {
         navigateWithBlocks('/hero-three');
-        }, 3500);
+        }, 4500);
 
         return () => clearTimeout(timer); // Clean up if user leaves early
     }, [navigateWithBlocks]);
@@ -44,10 +44,10 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper} `}>
             <div className={`${styles.loopTrack} animate-loop `}>
                 {/* Original Items */}
-                <img src='/images/a/a4.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/a/a1.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/a/a2.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/a/a3.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a4_r9jdja.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a1_cywm9c.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a2_j7vwvm.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a3_fckaya.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
                 
 
                 {/* duplicates */}
@@ -80,10 +80,10 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper} `}>
             <div className={`${styles.loopTrack} animate-loop2 `}>
                 {/* Original Items */}
-                <img src='/images/b/b3.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/b/b4.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/b/b1.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/b/b2.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b3_jfesdn.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550847/b4_hs8fci.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550848/b1_vhvko0.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b2_tdhvzg.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
 
                 {/* duplicates */}
                 {imagesB.map((item) => (
@@ -115,10 +115,10 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper} `}>
             <div className={`${styles.loopTrack} animate-loop3 `}>
                 {/* Original Items */}
-                <img src='/images/c/c2.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/c/c3.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/c/c4.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
-                <img src='/images/c/c1.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c2_t9d0mj.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550970/c3_q49a0k.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550968/c4_wvs8gm.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c1_pg12gr.png' alt='image' aria-hidden="true" className='w-[250px] h-[150px] object-cover mb-2 border-1 border-white shrink ' />
 
                 {/* duplicates */}
                 {imagesC.map((item) => (
@@ -186,11 +186,11 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper2}`}>
             <div className={`${styles.loopTrack} animate-loop `}>
                 {/* Original Items */}
-                <img src='/images/a/a4.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/a/a1.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/a/a2.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/a/a3.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src="/images/d/d4.png" alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a4_r9jdja.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a1_cywm9c.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a2_j7vwvm.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550804/a3_fckaya.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d4_dysss0.png" alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
                 
 
                 {/* duplicates */}
@@ -217,11 +217,11 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper2} `}>
             <div className={`${styles.loopTrack} animate-loop2 `}>
                 {/* Original Items */}
-                <img src='/images/b/b3.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/b/b4.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/b/b1.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/b/b2.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/d/d2.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b3_jfesdn.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550847/b4_hs8fci.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550848/b1_vhvko0.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550846/b2_tdhvzg.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d2_gssayk.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
 
                 {/* duplicates */}
                 {imagesB2.map((item) => (
@@ -247,11 +247,11 @@ const Hero2 = () => {
         <div className={`${styles.loopWrapper2} `}>
             <div className={`${styles.loopTrack} animate-loop3 `}>
                 {/* Original Items */}
-                <img src='/images/c/c2.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/c/c3.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/c/c4.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/c/c1.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
-                <img src='/images/d/d1.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c2_t9d0mj.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550970/c3_q49a0k.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550968/c4_wvs8gm.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550969/c1_pg12gr.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795551005/d1_qxhkkr.png' alt='image' aria-hidden="true" className='w-[100px] h-[130px] object-cover mb-1 border-1 border-white shrink ' />
 
                 {/* duplicates */}
                 {imagesC2.map((item) => (

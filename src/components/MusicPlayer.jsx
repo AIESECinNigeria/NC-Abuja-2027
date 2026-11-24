@@ -49,10 +49,10 @@ export default function MusicPlayer({ src, title }) {
         src='public/audio/webSound.mp3'
         onEnded={() => setIsPlaying(false)}
       />
-      <button className="bg-[#EC0303] hover:bg-white text-white hover:text-[#EC0303] p-1 rounded-full shadow-black shadow-[-4px_4px_0px_0px_rgba(0,0,0,1)] " onClick={togglePlay}>
+      {/* <button className="bg-[#EC0303] hover:bg-white text-white hover:text-[#EC0303] p-1 rounded-full shadow-black shadow-[-4px_4px_0px_0px_rgba(0,0,0,1)] " onClick={togglePlay}>
         {isPlaying ? 
             <div className="animate-spin "><EighthNotes /></div> : <div><EighthNotes /></div>}
-      </button>
+      </button> */}
     </div>
   );
 }

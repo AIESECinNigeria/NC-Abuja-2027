@@ -23,7 +23,7 @@ const Hero4 = () => {
                     <p className='hidden sm:block w-full lg:whitespace-pre-wrap font-baserona text-[#EC0303] text-[14px] sm:text-[17px] lg:text-[27px] leading-2 lg:leading-3 '>making   sure   every   driver   continues   their</p>
                     <p className='w-full lg:whitespace-pre-wrap font-baserona text-white text-[14px] sm:text-[17px] lg:text-[27px] leading-2 lg:leading-3 '>motion  {">>"}  in  {">>"}  purpose  is  the  only  outcome.</p>
                 </div>
-                <img src='/images/ctaGrey.png' className='h-[25px] sm:h-[25px] lg:h-5 ' alt='icon' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550476/smoke3_wfsacx.png' className='h-[25px] sm:h-[25px] lg:h-5 ' alt='icon' />
             </div>
         </div>
 
@@ -32,18 +32,18 @@ const Hero4 = () => {
             <div className='flex items-center lg:gap-1 '>
                 <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] lg:text-[70px] leading-4 sm:leading-5 '>THE</p>
                 {/* web */}
-                <img src='/images/globeRed3.png' alt='icon' className='hidden lg:block h-[60px] w-auto object-cover ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550470/globeRed3_dy3gdb.png' alt='icon' className='hidden lg:block h-[60px] w-auto object-cover ' />
                 {/* mobile */}
-                <img src='/images/globe1.png' alt='icon' className='lg:hidden h-[35px] w-auto object-cover ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/globe1_hvkmpd.png' alt='icon' className='lg:hidden h-[35px] w-auto object-cover ' />
                 {/* web */}
                 <p className='hidden lg:block font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] lg:text-[70px] leading-4 lg:leading-5 '>P</p>
-                <img src='/images/rrr.png' alt='icon' className='hidden lg:block h-[45px] w-auto object-cover ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550472/rrr_fsmvxq.png' alt='icon' className='hidden lg:block h-[45px] w-auto object-cover ' />
                 <p className='hidden lg:block font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] lg:text-[70px] leading-4 lg:leading-5 '>IX</p>
             </div>
             {/* mobile */}
             <div className='lg:hidden flex items-center gap-0 '>
                 <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] leading-4 sm:leading-5 '>P</p>
-                <img src='/images/redrrr.png' alt='icon' className='h-[24px] sm:h-[40px] w-auto object-cover ' />
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550471/redrrr_orzjny.png' alt='icon' className='h-[24px] sm:h-[40px] w-auto object-cover ' />
                 <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] leading-4 sm:leading-5 '>IX</p>
             </div>
             
@@ -55,8 +55,8 @@ const Hero4 = () => {
 
         <div className='px-2 sm:px-4 lg:px-8 mt-auto z-3 '>
             <div className='mt-3 flex items-center gap-0 h-[49px] lg:h-[70px] w-full '>
-            <img src='/images/ctaWhite.png' alt='flag' className='hidden lg:block object-cover h-[70px] ' />
-            <img src='/images/ctawSmall.png' alt='flag' className='block lg:hidden object-cover h-[49px] ' />
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550466/ctaWhite_pbr1ft.png' alt='flag' className='hidden lg:block object-cover h-[70px] ' />
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/ctawSmall_gqoaz3.png' alt='flag' className='block lg:hidden object-cover h-[49px] ' />
             <Link to='/' onClick={(e) => handleLinkClick(e, '/')} className='hover:bg-[#EC0303] bg-white h-full w-full p-1 flex items-center justify-center hover:text-white text-[#EC0303] text-[16px] lg:text-[24px] font-baserona font-light '>
                 START RACE
             </Link>
@@ -65,7 +65,7 @@ const Hero4 = () => {
 
         {/* car */}
         <div className='w-full h-[50%] lg:h-[70%] absolute bottom-0 z-1 flex '>
-            <img src='/images/smoke4.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline animate-slideUp ' />
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/smoke4_bglqps.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline animate-slideUp ' />
         </div>
     </div>
   )
