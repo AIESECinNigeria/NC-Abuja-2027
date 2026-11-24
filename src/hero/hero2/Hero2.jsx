@@ -39,7 +39,7 @@ const Hero2 = () => {
     }, [navigateWithBlocks]);
 
   return (
-    <div className={`${styles.container} flex items-center justify-center gap-2 relative overflow-hidden `}>
+    <div className={`${styles.container} flex items-center justify-center gap-1 sm:gap-2 relative overflow-hidden `}>
         {/* WEB VIEW */}
         <div className={`${styles.loopWrapper} `}>
             <div className={`${styles.loopTrack} animate-loop `}>
