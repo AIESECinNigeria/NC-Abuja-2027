@@ -95,9 +95,9 @@ const Hero1 = () => {
         top={40}
         right={400}
         width={400}
-        height={280}
+        height={500}
         mwidth={280}
-        mheight={400}
+        mheight={280}
         title="THE CAPITAL"
         text="Abuja is more than the host city. It is the meeting point for leaders from across AIESEC in Nigeria."
       />
