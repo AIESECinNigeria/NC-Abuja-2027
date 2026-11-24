@@ -78,25 +78,25 @@ const Hero1 = () => {
       <ModalPopup
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        src="/images/popUp1.png"
+        src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563023/popUp1_wudxo5.png"
         top={40}
         left={400}
         width={400}
         height={550}
-        mwidth={300}
-        mheight={300}
+        mwidth={280}
+        mheight={280}
         title="PURPOSE IN MOTION"
         text="This is where individual journeys meet collective momentum."
       />
       <ModalPopupB
         isOpen={isModalBOpen}
         onClose={() => setIsModalBOpen(false)}
-        src="/images/popUp2.png"
+        src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563026/popUp2_avepxy.png"
         top={40}
         right={400}
         width={400}
-        height={450}
-        mwidth={300}
+        height={280}
+        mwidth={280}
         mheight={400}
         title="THE CAPITAL"
         text="Abuja is more than the host city. It is the meeting point for leaders from across AIESEC in Nigeria."

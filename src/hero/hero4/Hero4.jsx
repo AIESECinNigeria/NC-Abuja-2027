@@ -84,8 +84,8 @@ const Hero4 = () => {
             right={80}
             width={650}
             height={500}
-            mwidth={300}
-            mheight={300}
+            mwidth={280}
+            mheight={280}
             title="ONE NETWORK"
             text="Different entities. Different experiences. One AIESEC in Nigeria moving in the same direction."
         />
@@ -97,8 +97,8 @@ const Hero4 = () => {
             left={80}
             width={650}
             height={500}
-            mwidth={300}
-            mheight={300}
+            mwidth={280}
+            mheight={280}
             title="WHERE WE MEET"
             text="In the heart of Nigeria’s capital, the network comes together to connect, reflect and move forward."
         />
