@@ -1,6 +1,4 @@
-import { useRef, useState } from "react";
-import { useEffect } from 'react';
-import { EighthNotes } from 'lucide-react';
+import { useRef, useState, useEffect } from "react";
 
 export default function MusicPlayer({ src, title }) {
   const audioRef = useRef(null);
@@ -10,49 +8,66 @@ export default function MusicPlayer({ src, title }) {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const cleanupListeners = () => {
+      window.removeEventListener("touchstart", startAudioOnInteraction);
+      window.removeEventListener("click", startAudioOnInteraction);
+      window.removeEventListener("keydown", startAudioOnInteraction);
+    };
+
+    const startAudioOnInteraction = async () => {
+      try {
+        await audio.play();
+        setIsPlaying(true);
+        cleanupListeners();
+      } catch (err) {
+        // Still waiting for a valid tap/click gesture
+      }
+    };
+
     const attemptAutoplay = async () => {
       try {
         await audio.play();
         setIsPlaying(true);
       } catch (err) {
-        // Browser blocked autoplay; leave paused until user clicks the button
         setIsPlaying(false);
+        // Mobile blocked autoplay: trigger on first screen tap anywhere
+        window.addEventListener("touchstart", startAudioOnInteraction, { passive: true });
+        window.addEventListener("click", startAudioOnInteraction, { passive: true });
+        window.addEventListener("keydown", startAudioOnInteraction, { passive: true });
       }
     };
 
     attemptAutoplay();
-  }, []);
 
-  const togglePlay = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-  
-    if (isPlaying) {
-      audio.pause();
-      setIsPlaying(false);
-    } else {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch (error) {
-        console.error("Audio failed to play:", error);
-        setIsPlaying(false);
+    // Pause when switching tabs or minimizing mobile browser
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        audio.play().catch(() => {});
       }
-    }
-  };
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      audio.pause();
+      cleanupListeners();
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [src]);
 
   return (
-    <div className="absolute bottom-10 right-10 z-120 ">
+    <div className="absolute bottom-10 right-10 z-120">
       <p>{title}</p>
       <audio
         ref={audioRef}
-        src='public/audio/webSound.mp3'
+        src={src || "/audio/webSound.mp3"}
         onEnded={() => setIsPlaying(false)}
+        preload="auto"
+        playsInline
+        loop
       />
-      {/* <button className="bg-[#EC0303] hover:bg-white text-white hover:text-[#EC0303] p-1 rounded-full shadow-black shadow-[-4px_4px_0px_0px_rgba(0,0,0,1)] " onClick={togglePlay}>
-        {isPlaying ? 
-            <div className="animate-spin "><EighthNotes /></div> : <div><EighthNotes /></div>}
-      </button> */}
     </div>
   );
 }

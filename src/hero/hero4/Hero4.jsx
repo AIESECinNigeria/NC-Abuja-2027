@@ -1,10 +1,14 @@
 import React from 'react'
+import { useState } from 'react';
 import styles from './Hero4.module.css'
 import { Link } from 'react-router-dom'
 import { useBlockTransition } from '../../components/TransitionContext';
+import ModalPopup from '../../components/ModalPopup';
+import ModalPopupB from '../../components/ModalPopUpB';
 
 const Hero4 = () => {
-    
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalBOpen, setIsModalBOpen] = useState(false);
     const { navigateWithBlocks } = useBlockTransition();
 
     const handleLinkClick = (e, path) => {
@@ -67,6 +71,37 @@ const Hero4 = () => {
         <div className='w-full h-[50%] lg:h-[70%] absolute bottom-0 z-1 flex '>
             <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/smoke4_bglqps.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline animate-slideUp ' />
         </div>
+
+        <div className='absolute w-full h-full z-7 inset-0 pointer-events-none flex flex-cols items-center justify-between '>
+            <div onClick={() => setIsModalOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white ml-2 sm:ml-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+            <div onClick={() => setIsModalBOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white mr-2 sm:mr-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+        </div>
+        <ModalPopup
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563025/popUp3_wqjkku.png"
+            bottom={40}
+            right={80}
+            width={650}
+            height={500}
+            mwidth={300}
+            mheight={300}
+            title="ONE NETWORK"
+            text="Different entities. Different experiences. One AIESEC in Nigeria moving in the same direction."
+        />
+        <ModalPopupB
+            isOpen={isModalBOpen}
+            onClose={() => setIsModalBOpen(false)}
+            src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563025/popUp4_idix7s.png"
+            top={40}
+            left={80}
+            width={650}
+            height={500}
+            mwidth={300}
+            mheight={300}
+            title="WHERE WE MEET"
+            text="In the heart of Nigeria’s capital, the network comes together to connect, reflect and move forward."
+        />
     </div>
   )
 }

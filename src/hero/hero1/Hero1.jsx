@@ -1,11 +1,15 @@
 import React from 'react'
+import { useState } from 'react';
 import { Link } from 'react-router-dom'
 import { useBlockTransition } from '../../components/TransitionContext'
+import ModalPopup from '../../components/ModalPopup';
+import ModalPopupB from '../../components/ModalPopUpB';
 import { ChevronsRight } from 'lucide-react';
 import styles from './hero1.module.css'
 
 const Hero1 = () => {
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalBOpen, setIsModalBOpen] = useState(false);
   const { navigateWithBlocks } = useBlockTransition();
 
   const handleLinkClick = (e, path) => {
@@ -67,6 +71,36 @@ const Hero1 = () => {
         <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795551370/carimg_qr1mx3.png' alt='car' className='h-[100%] lg:h-auto w-full lg:w-[80%] object-cover object-[90%] lg:object-left animate-slideUp ' />
       </div>
 
+      <div className='absolute w-full h-full z-7 inset-0 pointer-events-none flex flex-col justify-evenly '>
+        <div onClick={() => setIsModalOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white self-start ml-2 sm:ml-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+        <div onClick={() => setIsModalBOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white self-end mr-2 sm:mr-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+      </div>
+      <ModalPopup
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        src="/images/popUp1.png"
+        top={40}
+        left={400}
+        width={400}
+        height={550}
+        mwidth={300}
+        mheight={300}
+        title="PURPOSE IN MOTION"
+        text="This is where individual journeys meet collective momentum."
+      />
+      <ModalPopupB
+        isOpen={isModalBOpen}
+        onClose={() => setIsModalBOpen(false)}
+        src="/images/popUp2.png"
+        top={40}
+        right={400}
+        width={400}
+        height={450}
+        mwidth={300}
+        mheight={400}
+        title="THE CAPITAL"
+        text="Abuja is more than the host city. It is the meeting point for leaders from across AIESEC in Nigeria."
+      />
       
 
     </div>
