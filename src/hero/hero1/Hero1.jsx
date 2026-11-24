@@ -23,9 +23,9 @@ const Hero1 = () => {
       {/* red banner */}
       <div className='bg-linear-to-r from-[#EC0303] to-[#3F0909] py-1 px-2 sm:px-4 flex justify-between items-center text-white text-[20px] z-3 '>
         <p className='font-artegraLight '>PURPOSE</p>
-        <ChevronsRight className="w-3 h-3 shrink-0" strokeWidth={1.5} aria-hidden="true" />
+        <ChevronsRight className="w-[25px] h-[25px] shrink-0" strokeWidth={1.5} aria-hidden="true" />
         <p className='font-artegraLight '>IN</p>
-        <ChevronsRight className="w-3 h-3 shrink-0" strokeWidth={1.5} aria-hidden="true" />
+        <ChevronsRight className="w-[25px] h-[25px] shrink-0" strokeWidth={1.5} aria-hidden="true" />
         <p className='font-artegraLight '>MOTION</p>
       </div>
 
