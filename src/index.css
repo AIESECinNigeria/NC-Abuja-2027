@@ -20,14 +20,27 @@
   font-weight: 400;
   font-display: swap;
   src: url("/fonts/Artegra_Demo_Fonts/Fontspring-DEMO-artegra_sans-300-light.otf") format("opentype");
+  /* Only space and plain letters use this font.
+     Digits, punctuation and symbols fall back to Arial, because the demo font
+     is missing glyphs (a missing glyph is drawn as a comma). */
+  unicode-range: U+0020, U+0041-005A, U+0061-007A, U+0020, U+0030-0039, U+0041-005A, U+0061-007A, U+0028, U+0029, U+2010;;
 }
 @theme {
   --font-baserona: "Baserona", sans-serif;
   --font-superRichExpanded: "SuperRichExpanded", sans-serif;
   --font-stretch-v4: "SuperRichExpanded", sans-serif;
   --font-stretch-v4--font-feature-settings: "liga";
-  --font-artegraLight: "ArtegraLight", sans-serif;
+  --font-artegraLight: "ArtegraLight", Arial, sans-serif;
   --spacing: 10px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff;
+  caret-color: #fff;
+  transition: background-color 600000s 0s, color 600000s 0s;
 }
 /* :root {
   --text: #6b6375;
