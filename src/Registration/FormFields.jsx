@@ -31,7 +31,8 @@ function SafeText({ children }) {
 
 // One place for the box + underline styling, shared by TextField and DropdownField.
 // Only ONE border colour and ONE background are ever applied, so nothing conflicts.
-function boxState({ filled, invalid, variant }) {
+// `shake` is an optional animation class ('shake-a' / 'shake-b', see motion.css).
+function boxState({ filled, invalid, variant, shake = '' }) {
   const border = invalid
     ? 'border-[#EC0303]'
     : filled
@@ -51,7 +52,7 @@ function boxState({ filled, invalid, variant }) {
   // Figma's grey field (white 20% fill, white 50% stroke) = the active field
   const focus = 'focus-within:bg-white/20 focus-within:border-white/50';
 
-  return { box: `${fieldBoxBase} ${border} ${bg} ${focus}`, line };
+  return { box: `${fieldBoxBase} ${border} ${bg} ${focus} ${shake}`, line };
 }
 
 export function FieldError({ id, message }) {
@@ -60,7 +61,7 @@ export function FieldError({ id, message }) {
     <p
       id={id}
       role="alert"
-      className="mt-[6px] text-[14px] font-medium leading-tight text-[#EC0303] lg:mt-[calc(8_*_var(--k,1px))] lg:text-[length:calc(18_*_var(--k,1px))]"
+      className="error-in mt-[6px] text-[14px] font-medium leading-tight text-[#EC0303] lg:mt-[calc(8_*_var(--k,1px))] lg:text-[length:calc(18_*_var(--k,1px))]"
     >
       {message}
     </p>
@@ -80,9 +81,10 @@ export function TextField({
   filled,
   invalid,
   errorId,
+  shake = '',
   variant = 'red',
 }) {
-  const { box, line } = boxState({ filled, invalid, variant });
+  const { box, line } = boxState({ filled, invalid, variant, shake });
 
  return (
   <div className={box}>
@@ -118,6 +120,7 @@ export function DropdownField({
   iconSrc = DROPDOWN_ICON_SRC,
   filled,
   invalid,
+  shake = '',
   variant = 'red',
 }) {
   const [open, setOpen] = useState(false);
@@ -141,7 +144,7 @@ export function DropdownField({
   }, [open]);
 
   // same box + underline styling as TextField (grey when filled)
-  const { box, line } = boxState({ filled, invalid, variant });
+  const { box, line } = boxState({ filled, invalid, variant, shake });
 
   return (
     <Controller
@@ -169,7 +172,7 @@ export function DropdownField({
                 role="listbox"
                 onClick={(e) => e.stopPropagation()}
                 // long lists scroll inside the field instead of stretching the page
-                className="-mx-[8px] max-h-[180px] overflow-y-auto overscroll-contain [scrollbar-color:rgba(255,255,255,0.4)_transparent] [scrollbar-width:thin] lg:-mx-[calc(8_*_var(--k,1px))] lg:max-h-[calc(180_*_var(--k,1px))]"
+                className="drop-in -mx-[8px] max-h-[180px] overflow-y-auto overscroll-contain [scrollbar-color:rgba(255,255,255,0.4)_transparent] [scrollbar-width:thin] lg:-mx-[calc(8_*_var(--k,1px))] lg:max-h-[calc(180_*_var(--k,1px))]"
               >
                 {options.map((opt) => (
                   <div

@@ -1,0 +1,50 @@
+/* Staggered entrance: element rises 14px while fading in.
+   --i = position in the sequence (0 = first). Change --enter-delay to retime everything.
+   0.7s = just after the block transition starts clearing. Use 0s for direct page loads. */
+.enter-up {
+  animation: enterUp 0.5s ease-out backwards;
+  animation-delay: calc(var(--enter-delay, 0.7s) + var(--i, 0) * 0.08s);
+}
+
+@keyframes enterUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Error shake. Two identical animations: switching between them replays the shake
+   (the form does this on every submit attempt while the error is still there). */
+.shake-a { animation: shakeA 0.4s ease-in-out; }
+.shake-b { animation: shakeB 0.4s ease-in-out; }
+
+@keyframes shakeA {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+@keyframes shakeB {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(3px); }
+}
+
+/* error message appearing */
+.error-in { animation: errorIn 0.25s ease-out; }
+@keyframes errorIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* dropdown list opening */
+.drop-in { animation: dropIn 0.18s ease-out; }
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter-up, .shake-a, .shake-b, .error-in, .drop-in { animation: none; }
+}

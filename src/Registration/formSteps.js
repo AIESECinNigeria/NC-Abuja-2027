@@ -112,14 +112,6 @@ export const STEPS = [
     card: { image: "/images/Driver_in_race_car_cockpit_focus.png" },
     fields: [
       {
-        name: "role",
-        type: "select",
-        label: "What is your assigned position on the track?",
-        placeholder: "Choose your role",
-        options: ["TM", "TL", "LCVP", "LCP", "ALUMNI"],
-        rules: { required: "Choose your role" },
-      },
-      {
         name: "firstRaceDate",
         type: "text",
         label: "When did you first hit the circuit?",
@@ -134,11 +126,19 @@ export const STEPS = [
         },
       },
       {
+        name: "role",
+        type: "select",
+        label: "What is your assigned position on the track?",
+        placeholder: "Choose your role",
+        options: ["TM", "TL", "LCVP", "LCP", "ALUMNI"],
+        rules: { required: "Choose your role" },
+      },
+      {
         name: "team",
         type: "select",
         label: "Which team are you representing?",
         placeholder: "Choose your LC",
-        options: ["THE COOKS (EST)", "ABEOKUTA", "ABUJA", "AKURE", "BENIN", "CALABAR", "EKITI", "ENUGU", "IBADAN", "IFE", "ILORIN", "JOS", "KANO", "LAGOS", "PORT HARCOURT", "ZARIA"],
+        options: ["THE COOKS (EST)", "ABEOKUTA", "ABUJA", "AKURE", "BENIN", "CALABAR", "EKITI", "ENUGU", "IBADAN", "IFE", "ILORIN", "JOS", "KANO", "LAGOS", "PORT HARCOURT", "ZARIA", "INTERNATIONAL DELEGATES"],
         rules: { required: "Choose your LC" },
       },
       {
@@ -221,7 +221,7 @@ export const STEPS = [
         type: "select",
         label: "How will you set up your drivers quarters?",
         placeholder: "Choose your quarters arrangement",
-        options: ["Male Quarters", "Female Quarters", "Multi-gender Quarters"],
+        options: ["Single Gender Quarters", "Multi-gender Quarters"],
         rules: { required: "Select one" },
       },
       {

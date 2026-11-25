@@ -4,6 +4,7 @@ import { TextField, DropdownField, FieldError } from "./FormFields";
 import { SHARED_ASSETS, DEFAULT_LAYOUT } from "./formSteps";
 import { validateMinAge } from "./validators";
 import styles from "./form1.module.css"; // rename the file whenever you like
+import "../components/motion.css"; // entrance, shake and dropdown animations
 
 // The Figma desktop frame is 1440 x 1024, the mobile frame is 390 x 930
 const PHOTO_W = 1440;
@@ -245,9 +246,13 @@ function SectionBackground({ A, L, bgStyle }) {
 // Renders one field from its config.
 // f.gapBefore = extra space ABOVE this field on desktop (Figma pixels); f.gapBeforeMobile = same on mobile (px)
 // f.minAge = minimum age in years: the field is read as a date of birth and checked
-function Field({ f, register, control, errors, filled }) {
+// index = position in the step (drives the staggered entrance), submitCount = submit attempts so far (replays the shake)
+function Field({ f, register, control, errors, filled, index, submitCount }) {
   const err = errors[f.name];
   const errorId = `${f.name}-error`;
+
+  // shake the box while it has an error; alternating the class name on each submit attempt replays it
+  const shake = err ? (submitCount % 2 ? "shake-a" : "shake-b") : "";
 
   // the field's own rules, plus the age check when f.minAge is set
   const rules = f.minAge
@@ -265,8 +270,12 @@ function Field({ f, register, control, errors, filled }) {
 
   return (
     <div
-      className="mt-[calc(var(--gbm,0)_*_1px)] lg:mt-[calc(var(--gb,0)_*_var(--k,1px))]"
-      style={{ "--gb": f.gapBefore ?? 0, "--gbm": f.gapBeforeMobile ?? 0 }}
+      className="enter-up mt-[calc(var(--gbm,0)_*_1px)] lg:mt-[calc(var(--gb,0)_*_var(--k,1px))]"
+      style={{
+        "--gb": f.gapBefore ?? 0,
+        "--gbm": f.gapBeforeMobile ?? 0,
+        "--i": index + 1, // 0 is the title block
+      }}
     >
       {f.type === "select" ? (
         <DropdownField
@@ -278,6 +287,7 @@ function Field({ f, register, control, errors, filled }) {
           options={f.options}
           rules={rules}
           invalid={!!err}
+          shake={shake}
         />
       ) : (
         <TextField
@@ -293,6 +303,7 @@ function Field({ f, register, control, errors, filled }) {
           rules={rules}
           invalid={!!err}
           errorId={errorId}
+          shake={shake}
         />
       )}
       <FieldError id={errorId} message={err?.message} />
@@ -390,7 +401,7 @@ export default function FormStep({ step, defaultValues, onNext }) {
     handleSubmit,
     watch,
     setValue,
-    formState: { errors, isSubmitting, touchedFields },
+    formState: { errors, isSubmitting, touchedFields, submitCount },
   } = useForm({
     mode: "onTouched",
     defaultValues: Object.fromEntries(
@@ -436,7 +447,10 @@ export default function FormStep({ step, defaultValues, onNext }) {
         />
 
         {/* Title block image (Ready to join + THE PRIX? + 4 globes) */}
-        <div className="relative mt-[43px] md:mt-[40px] lg:mt-0">
+        <div
+          className="enter-up relative mt-[43px] md:mt-[40px] lg:mt-0"
+          style={{ "--i": 0 }}
+        >
           <h1>
             <picture>
               <source media="(min-width: 1024px)" srcSet={A.title} />
@@ -468,7 +482,7 @@ export default function FormStep({ step, defaultValues, onNext }) {
             noValidate
             className="mt-[37px] flex w-full max-w-[760px] flex-col gap-[16px] md:mt-[36px] lg:mt-0 lg:w-[calc(738_*_var(--k,1px))] lg:max-w-full lg:shrink-0 lg:gap-[calc(15_*_var(--k,1px))]"
           >
-            {step.fields.map((f) => (
+            {step.fields.map((f, i) => (
               <Field
                 key={f.name}
                 f={f}
@@ -476,6 +490,8 @@ export default function FormStep({ step, defaultValues, onNext }) {
                 control={control}
                 errors={errors}
                 filled={isFilled(f.name)}
+                index={i}
+                submitCount={submitCount}
               />
             ))}
           </form>
@@ -555,17 +571,17 @@ export default function FormStep({ step, defaultValues, onNext }) {
           style={{ flexGrow: S.beforeCta }}
         />
 
-        {/* CTA: the image IS the button */}
+        {/* CTA: the image IS the button. Last in the entrance sequence. */}
         <div
-          className="ml-[var(--cml-m,0%)] w-[var(--cw-m,100%)] pb-[60px] md:pb-[32px] lg:ml-[var(--cml,0%)] lg:w-[var(--cw,100%)] lg:pb-0"
-          style={ctaVars}
+          className="enter-up ml-[var(--cml-m,0%)] w-[var(--cw-m,100%)] pb-[60px] md:pb-[32px] lg:ml-[var(--cml,0%)] lg:w-[var(--cw,100%)] lg:pb-0"
+          style={{ ...ctaVars, "--i": step.fields.length + 1 }}
         >
           <button
             type="submit"
             form={formId}
             disabled={isSubmitting}
             aria-busy={isSubmitting}
-            className="block w-full cursor-pointer transition hover:brightness-110 active:brightness-90 disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            className="block w-full cursor-pointer transition duration-150 hover:brightness-110 active:scale-[0.97] active:brightness-90 disabled:cursor-not-allowed disabled:opacity-60 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
             <picture>
               <source media="(min-width: 1024px)" srcSet={A.cta} />
