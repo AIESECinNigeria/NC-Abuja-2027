@@ -4,23 +4,23 @@ import "../components/motion.css";
 
 // ============ DESKTOP ASSETS ============
 const DESKTOP_FILES = {
-  bg: "/images/success-bg.png",
-  flag: "/images/success-flags.png",
-  title: "/images/success-headline.png", 
-  briefing: "/images/success-briefing.png",
-  prix: "/images/success-prix.png",
+  bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626499/success-bg.png",
+  flag: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626459/success-flags.png",
+  title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626459/success-headline.png", 
+  briefing: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/success-briefing.png",
+  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/success-prix.png",
 };
 
 // ============ MOBILE ASSETS ============
 const MOBILE_FILES = {
-  bg: "/images/succbgmob.png",
-  flag: "/images/successflag-mob.png",
-  youHave: "/images/You-have.png",
-  successfully: "/images/succ-mob.png",
-  completed: "/images/comp-mob.png",
-  theRace: "/images/the-race!.png",
-  briefing: "/images/brief-mob.png",
-  prix: "/images/success-prix.png",
+  bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626457/succbgmob.png",
+  flag: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626459/successflag-mob.png",
+  youHave: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626461/You-have.png",
+  successfully: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/succ-mob.png",
+  completed: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626447/comp-mob.png",
+  theRace: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/the-race.png",
+  briefing: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795627973/brief-mob.png",
+  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/success-prix.png",
 };
 
 const OVERLAY = 0.5;
@@ -33,9 +33,9 @@ const STAGGER = 3;
 const DESKTOP_FRAME = { w: 1440, h: 1024 };
 const DESKTOP_ELEMENTS = {
   flag: { right: "4%", top: 98, w: 292 },
-  title: { left: "14%", top: 420, w: 1238 }, // Single title
-  briefing: { right: "5%", top: 803, w: 628 },
-  prix: { right: "5%", top: 868, w: 628 },
+  title: { left: "11%", top: 420, w: 1238 }, 
+  briefing: { right: "1%", top: 803, w: 628 },
+  prix: { right: "1%", top: 868, w: 628 },
 };
 
 // ============ MOBILE CONFIG ============

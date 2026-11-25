@@ -1,10 +1,10 @@
 // Assets every step uses unless the step overrides them
 export const SHARED_ASSETS = {
   texture: "/images/bg-texture.png",
-  ncAbuja: "/images/NC_desktop.png", // desktop: sits on the helmet visor ('' = off for a step)
+  ncAbuja: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/Logo_1.png", // desktop: sits on the helmet visor ('' = off for a step)
   ncAbujaMobile: "",
-  cta: "/images/CTA_desk.png",
-  ctaMobile: "/images/CTA_mob.png",
+  cta: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795627576/CTA_desk.png",
+  ctaMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/CTA_5.png",
 };
 
 // Layout defaults, override per step with `layout: { ... }`
@@ -35,13 +35,24 @@ const formatDate = (v) => {
 export const STEPS = [
   {
     id: "driver",
+     popups: [
+    {
+      dot: { top: "53.7%", left: "70.5%" },
+      dotMobile: { top: "78.7%", right: "42.8%" },
+      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643305/image_3613.png",
+      title: "THE STARTING GRID",
+      text: "Abuja sets the stage. The people of AIESEC in Nigeria bring the energy, ambition and purpose.",
+      top: 40, left: 400, width: 400, height: 550, // desktop modal
+      mwidth: 280, mheight: 280,                   // mobile modal
+    },
+  ],
     assets: {
-      bg: "/images/Driver_holding_helmet_bg.png",
-      bgMobile: "/images/Driver_holding_helmet_bg.png",
-      helmetOverlay: "/images/driver-helmet.png",
-      helmetOverlayMobile: "/images/driver-helmet.png",
-      title: "/images/ready_to_join_desktop.png",
-      titleMobile: "/images/ready_to_join_mobile.png",
+      bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_holding_helmet_bg.png",
+      bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_holding_helmet_bg.png",
+      helmetOverlay: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/driver-helmet.png",
+      helmetOverlayMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/driver-helmet.png",
+      title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795631375/Group_1597888829_8.png",
+      titleMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626086/Group_1597888830_4.png",
     },
     fields: [
       {
@@ -95,12 +106,23 @@ export const STEPS = [
 
   {
     id: "circuit",
+     popups: [
+    {
+      dot: { top: "43.7%", left: "85.5%" },
+      dotMobile: { top: "78.7%", right: "22.8%" },
+      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643601/image_3736_3.png",
+      title: "ARRIVAL",
+      text: "Standing along the approach to Abuja, Zuma Rock has become one of the most memorable sights associated with the journey into the capital.",
+      top: 40, left: 400, width: 738, height: 656, // desktop modal
+      mwidth: 280, mheight: 280,                   // mobile modal
+    },
+  ],
     assets: {
-      bg: "/images/Driver_in_race_car_cockpit_back.png",
-      bgMobile: "/images/bg2mob.png",
-      card: "/images/Driver_in_race_car_cockpit_focus.png",
-      title: "/images/ready2desk.png",
-      titleMobile: "/images/ready2mob.png",
+      bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_in_race_car_cockpit_back.png",
+      bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626449/bg2mob.png",
+      card: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626453/Driver_in_race_car_cockpit_focus.png",
+      title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626087/Group_1597888829_5.png",
+      titleMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626086/Group_1597888830_5.png",
       ncAbuja: "",
     },
     layout: {
@@ -109,7 +131,7 @@ export const STEPS = [
       cardSyncY: 15,
       cardSyncScale: 83,
     },
-    card: { image: "/images/Driver_in_race_car_cockpit_focus.png" },
+    card: { image: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626453/Driver_in_race_car_cockpit_focus.png" },
     fields: [
       {
         name: "firstRaceDate",
@@ -154,11 +176,22 @@ export const STEPS = [
 
   {
     id: "medical",
+     popups: [
+    {
+      dot: { top: "28.7%", left: "82.5%" },
+      dotMobile: { top: "80.7%", right: "72.8%" },
+      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795645289/image_3736_5.png",
+      title: "LANDMARK",
+      text: "With its soaring spire and distinctive neo-Gothic form, the National Christian Centre stands as one of Abuja’s most recognisable religious and architectural landmarks..",
+      top: 40, left: 400, width: 738, height: 640, // desktop modal
+      mwidth: 280, mheight: 280,                   // mobile modal
+    },
+  ],
     assets: {
-      bg: "/images/bg3.png",
-      bgMobile: "/images/bg3mob.png",
-      title: "/images/ready3des.png",
-      titleMobile: "/images/ready3mob.png",
+      bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626461/bg3.png",
+      bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626451/bg3mob.png",
+      title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626087/Group_1597888829_6.png",
+      titleMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/Group_1597888830_6.png",
     },
     layout: { bgFit: "height", 
               badgeTop: "63.9%", 
@@ -197,13 +230,25 @@ export const STEPS = [
 
   {
     id: "finish",
+     popups: [
+    {
+      dot: { top: "65.7%", left: "85.5%" },
+      dotMobile: { top: "68.7%", right: "32.8%" },
+      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795644119/image_3736_4.png",
+      title: "LANDMARK",
+      text: "With its golden dome and four minarets, the Abuja National Mosque stands as one of the capital’s most distinctive architectural icons.",
+      top: 10, left: 400, width: 738, height: 654, // desktop modal
+      mwidth: 280, mheight: 280,                   // mobile modal
+    },
+  ],
+    ctaSound: "/audio/car-rev.mp3",
     assets: {
-      bg: "/images/bg4.png",
-      bgMobile: "/images/bg4mob.png",
-      title: "/images/ready4des.png",
-      titleMobile: "/images/ready4mob.png",
-      cta: "/images/finalCTAdes.png",
-      ctaMobile: "/images/finalCTAmob.png",
+      bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626466/bg4.png",
+      bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626449/bg4mob.png",
+      title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626086/Group_1597888829_7.png",
+      titleMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/Group_1597888830_7.png",
+      cta: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/CTA_4.png",
+      ctaMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/CTA_6.png",
     },
     ctaAlt: "Finish race",                     
     layout: {

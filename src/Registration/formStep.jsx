@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { TextField, DropdownField, FieldError } from "./FormFields";
 import { SHARED_ASSETS, DEFAULT_LAYOUT } from "./formSteps";
 import { validateMinAge } from "./validators";
-import styles from "./form1.module.css"; // rename the file whenever you like
+import StepPopups from "./StepPopups";
+import styles from "./form1.module.css"; 
 import "../components/motion.css"; // entrance, shake and dropdown animations
 
 // The Figma desktop frame is 1440 x 1024, the mobile frame is 390 x 930
@@ -114,7 +115,6 @@ function SectionBackground({ A, L, bgStyle }) {
     >
       {/* MOBILE / TABLET photo */}
       {mBox ? (
-        /* option 1: placed like a fixed-size Figma mobile frame, scaled to cover the screen */
         <div
           className="absolute lg:hidden"
           style={{
@@ -139,7 +139,6 @@ function SectionBackground({ A, L, bgStyle }) {
           />
         </div>
       ) : mb ? (
-        /* option 2: glued to the bottom, scaled like the 390-wide Figma frame, height follows the image */
         <img
           src={bgMobile}
           alt=""
@@ -171,7 +170,6 @@ function SectionBackground({ A, L, bgStyle }) {
 
       {fitHeight ? (
         <>
-          {/* DESKTOP, fit-to-height: blurred fill for the sides, made from the same photo */}
           <img
             src={A.bg}
             alt=""
@@ -179,9 +177,6 @@ function SectionBackground({ A, L, bgStyle }) {
             style={{ filter: "blur(28px) brightness(0.8)", transform: "scale(1.15)" }}
           />
 
-          {/* the Figma frame at the same scale as the form (--k).
-              "edge": its right edge sits on the window's right edge.
-              default: its content edge lines up with the content's right edge. */}
           <div
             className="absolute hidden lg:block"
             style={{
@@ -202,7 +197,6 @@ function SectionBackground({ A, L, bgStyle }) {
             </div>
           </div>
 
-          {/* NC Abuja logo: lined up with the title's right edge, same scale as the form */}
           {A.ncAbuja && (
             <img
               src={A.ncAbuja}
@@ -217,7 +211,6 @@ function SectionBackground({ A, L, bgStyle }) {
           )}
         </>
       ) : (
-        /* DESKTOP, cover: photo fills the whole window, right-aligned (steps 1 and 2) */
         <div
           className="absolute hidden lg:block"
           style={{
@@ -233,7 +226,6 @@ function SectionBackground({ A, L, bgStyle }) {
         </div>
       )}
 
-      {/* grain texture over the whole window */}
       <img
         src={A.texture}
         alt=""
@@ -243,18 +235,12 @@ function SectionBackground({ A, L, bgStyle }) {
   );
 }
 
-// Renders one field from its config.
-// f.gapBefore = extra space ABOVE this field on desktop (Figma pixels); f.gapBeforeMobile = same on mobile (px)
-// f.minAge = minimum age in years: the field is read as a date of birth and checked
-// index = position in the step (drives the staggered entrance), submitCount = submit attempts so far (replays the shake)
 function Field({ f, register, control, errors, filled, index, submitCount }) {
   const err = errors[f.name];
   const errorId = `${f.name}-error`;
 
-  // shake the box while it has an error; alternating the class name on each submit attempt replays it
   const shake = err ? (submitCount % 2 ? "shake-a" : "shake-b") : "";
 
-  // the field's own rules, plus the age check when f.minAge is set
   const rules = f.minAge
     ? {
         ...f.rules,
@@ -274,7 +260,7 @@ function Field({ f, register, control, errors, filled, index, submitCount }) {
       style={{
         "--gb": f.gapBefore ?? 0,
         "--gbm": f.gapBeforeMobile ?? 0,
-        "--i": index + 1, // 0 is the title block
+        "--i": index + 1, 
       }}
     >
       {f.type === "select" ? (
@@ -316,18 +302,14 @@ export default function FormStep({ step, defaultValues, onNext }) {
   const L = { ...DEFAULT_LAYOUT, ...step.layout };
   const formId = `form-${step.id}`;
 
-  // the framed photo card (desktop). The image goes in assets.card, like every other image
   const cardSrc = A.card || step.card?.image;
 
-  // where the blurred background layer sits inside the Figma frame
   const bgBox = L.bgBox ?? { x: 0, y: 0, w: PHOTO_W, h: PHOTO_H };
 
-  // vertical spacing between the blocks, in Figma proportions (override per step with layout.space)
   const S = { top: 101, afterTitle: 76, beforeCta: 112, bottom: 100, ...L.space };
 
-  // CTA width / position (optional): read X and W of the CTA layer in Figma
-  const cb = L.ctaBox?.w > 0 ? L.ctaBox : null; // desktop: content spans x 100..1340 of the 1440 frame
-  const cbm = L.ctaBoxMobile?.w > 0 ? L.ctaBoxMobile : null; // mobile: content spans x 20..370 of the 390 frame
+  const cb = L.ctaBox?.w > 0 ? L.ctaBox : null; 
+  const cbm = L.ctaBoxMobile?.w > 0 ? L.ctaBoxMobile : null; 
   const ctaVars = {
     ...(cb && {
       "--cml": `${((cb.x - 100) / 1240) * 100}%`,
@@ -339,7 +321,29 @@ export default function FormStep({ step, defaultValues, onNext }) {
     }),
   };
 
-  // ---- alignment helper: add ?align to the URL (dev server only) ----
+  const revAudioRef = useRef(null);
+
+  useEffect(() => {
+    if (!step.ctaSound) {
+      revAudioRef.current = null;
+      return;
+    }
+    const audio = new Audio(step.ctaSound);
+    audio.preload = "auto";
+    revAudioRef.current = audio;
+  }, [step.ctaSound]);
+
+  const playRev = () => {
+    const audio = revAudioRef.current;
+    if (!audio) return;
+    try {
+      audio.currentTime = 0;
+      const p = audio.play();
+      if (p && typeof p.catch === "function") p.catch(() => {}); 
+    } catch {
+    }
+  };
+
   const align =
     import.meta.env.DEV &&
     typeof window !== "undefined" &&
@@ -354,8 +358,8 @@ export default function FormStep({ step, defaultValues, onNext }) {
         setNudge({ x: 0, y: 0, s: 0 });
         return;
       }
-      const d = e.shiftKey ? 10 : 1; // Figma pixels
-      const ds = e.shiftKey ? 2 : 0.5; // percent
+      const d = e.shiftKey ? 10 : 1; 
+      const ds = e.shiftKey ? 2 : 0.5; 
       const moves = {
         ArrowLeft: { x: -d },
         ArrowRight: { x: d },
@@ -379,12 +383,10 @@ export default function FormStep({ step, defaultValues, onNext }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [align]);
 
-  // nudge on top of whatever is saved in layout
   const syncX = (L.cardSyncX ?? 0) + nudge.x;
   const syncY = (L.cardSyncY ?? 0) + nudge.y;
-  const syncS = Math.round(((L.cardSyncScale ?? 100) + nudge.s) * 10) / 10; // percent, 100 = as exported
+  const syncS = Math.round(((L.cardSyncScale ?? 100) + nudge.s) * 10) / 10; 
 
-  // optional blurred / darkened background (step.bgBlur in design px, step.bgDim from 0 to 1)
   const blur = step.bgBlur ?? 0;
   const dim = step.bgDim ?? 0;
   const bgStyle =
@@ -412,9 +414,6 @@ export default function FormStep({ step, defaultValues, onNext }) {
   const values = watch();
   const isFilled = (name) => !!String(values[name] ?? "").trim();
 
-  // run each field's cleaner (phone digits, date format...) however the value got in.
-  // Errors are only re-checked once the field has been touched, so a half-typed
-  // date does not flash an error while the person is still typing.
   useEffect(() => {
     step.fields.forEach((f) => {
       if (!f.sanitize) return;
@@ -426,12 +425,12 @@ export default function FormStep({ step, defaultValues, onNext }) {
     });
   }, [values, step.fields, setValue, touchedFields]);
 
-  const submit = (data) => onNext(data);
+  const submit = (data) => {
+    playRev();
+    return onNext(data);
+  };
 
   return (
-    // Desktop (lg+): locked to the viewport, no page scroll.
-    //   --kx = width scale, --ky = height scale (Figma frame is 1440x1024), --k = the smaller of the two
-    // Mobile: natural height, scrolls normally.
     <section
       className={`${styles.container} relative flex flex-col overflow-hidden py-[clamp(8px,2vh,16px)] text-white lg:py-0 lg:[--kx:calc(100vw*0.000694444)] lg:[--ky:calc(100dvh*0.000976563)] lg:[--k:min(var(--kx),var(--ky))] lg:!h-[100dvh] lg:!min-h-0`}
     >
@@ -439,14 +438,12 @@ export default function FormStep({ step, defaultValues, onNext }) {
 
       {/* ===== Content ===== */}
       <div className="relative z-10 mx-auto flex min-h-0 w-full max-w-[1280px] flex-1 flex-col px-[20px] md:px-[40px] lg:absolute lg:inset-0 lg:mx-0 lg:max-w-none lg:flex-none lg:px-[7vw]">
-        {/* desktop only: flexible space above the title */}
         <div
           aria-hidden
           className="hidden lg:block lg:min-h-[12px] lg:basis-0"
           style={{ flexGrow: S.top }}
         />
 
-        {/* Title block image (Ready to join + THE PRIX? + 4 globes) */}
         <div
           className="enter-up relative mt-[43px] md:mt-[40px] lg:mt-0"
           style={{ "--i": 0 }}
@@ -467,14 +464,12 @@ export default function FormStep({ step, defaultValues, onNext }) {
           )}
         </div>
 
-        {/* desktop only: flexible space between title and form */}
         <div
           aria-hidden
           className="hidden lg:block lg:min-h-[12px] lg:basis-0"
           style={{ flexGrow: S.afterTitle }}
         />
 
-        {/* Form on the left, optional photo card on the right (desktop only) */}
         <div className="lg:flex lg:items-start lg:justify-between">
           <form
             id={formId}
@@ -504,8 +499,6 @@ export default function FormStep({ step, defaultValues, onNext }) {
                 height: `calc(${CARD.h} * var(--k, 1px))`,
               }}
             >
-              {/* blurred background at the SAME scale and position as the card, so they line up.
-                  Sits behind the form and title (-z-10) but above the full-window background. */}
               <div
                 aria-hidden
                 className="pointer-events-none absolute -z-10"
@@ -531,7 +524,6 @@ export default function FormStep({ step, defaultValues, onNext }) {
                 />
               </div>
 
-              {/* the sharp photo card (50% see-through in align mode) */}
               <div
                 className="absolute inset-0 overflow-hidden border border-white/50"
                 style={{ opacity: align ? 0.5 : 1 }}
@@ -554,7 +546,6 @@ export default function FormStep({ step, defaultValues, onNext }) {
                     }}
                   />
                 )}
-                {/* grain over the card, like Figma (the texture sits above it there) */}
                 <img
                   src={A.texture}
                   alt=""
@@ -565,13 +556,11 @@ export default function FormStep({ step, defaultValues, onNext }) {
           )}
         </div>
 
-        {/* space between the form and the CTA */}
         <div
           className="min-h-[100px] flex-1 md:min-h-[44px] lg:min-h-[12px] lg:basis-0"
           style={{ flexGrow: S.beforeCta }}
         />
 
-        {/* CTA: the image IS the button. Last in the entrance sequence. */}
         <div
           className="enter-up ml-[var(--cml-m,0%)] w-[var(--cw-m,100%)] pb-[60px] md:pb-[32px] lg:ml-[var(--cml,0%)] lg:w-[var(--cw,100%)] lg:pb-0"
           style={{ ...ctaVars, "--i": step.fields.length + 1 }}
@@ -594,13 +583,14 @@ export default function FormStep({ step, defaultValues, onNext }) {
           </button>
         </div>
 
-        {/* desktop only: flexible space at the bottom */}
         <div
           aria-hidden
           className="hidden lg:block lg:min-h-[12px] lg:basis-0"
           style={{ flexGrow: S.bottom }}
         />
       </div>
+
+      <StepPopups popups={step.popups} />
 
       {/* alignment helper readout (only with ?align in the URL, dev server only) */}
       {align && (
