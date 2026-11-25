@@ -1,0 +1,7 @@
+.container {
+    background: url('/images/bg-texture.png');
+    background-size: cover;
+    background-color: black;
+    min-height: 100dvh;
+    width: 100%;
+}

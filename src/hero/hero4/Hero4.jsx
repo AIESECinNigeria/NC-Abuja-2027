@@ -1,0 +1,109 @@
+import React from 'react'
+import { useState } from 'react';
+import styles from './Hero4.module.css'
+import { Link } from 'react-router-dom'
+import { useBlockTransition } from '../../components/TransitionContext';
+import ModalPopup from '../../components/ModalPopup';
+import ModalPopupB from '../../components/ModalPopUpB';
+
+const Hero4 = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModalBOpen, setIsModalBOpen] = useState(false);
+    const { navigateWithBlocks } = useBlockTransition();
+
+    const handleLinkClick = (e, path) => {
+    if (e.metaKey || e.ctrlKey) return;
+    e.preventDefault();
+    navigateWithBlocks(path);
+    };
+
+  return (
+    <div className={`${styles.container} py-3 flex flex-col relative overflow-hidden `}>
+        <div className='w-full flex flex-col z-3 '>
+            <p className='hidden sm:block w-full px-2 sm:px-3 lg:px-8 lg:whitespace-pre-wrap font-baserona text-[#EC0303] text-[14px] sm:text-[18px] lg:text-[27px] leading-2 lg:leading-3 '>Wins   and   loses   do   not   define   this   championship,</p>
+            <p className='sm:hidden w-full px-2 sm:px-3 lg:px-8 lg:whitespace-pre-wrap font-baserona text-[#EC0303] text-[14px] sm:text-[18px] lg:text-[27px] leading-2 lg:leading-3 '>Wins   and   loses   do   not   define   this   championship, making   sure   every   driver   continues   their</p>
+            <div className='flex items-center px-2 sm:px-3 lg:px-8 '>
+                <div>
+                    <p className='hidden sm:block w-full lg:whitespace-pre-wrap font-baserona text-[#EC0303] text-[14px] sm:text-[17px] lg:text-[27px] leading-2 lg:leading-3 '>making   sure   every   driver   continues   their</p>
+                    <p className='w-full lg:whitespace-pre-wrap font-baserona text-white text-[14px] sm:text-[17px] lg:text-[27px] leading-2 lg:leading-3 '>motion  {">>"}  in  {">>"}  purpose  is  the  only  outcome.</p>
+                </div>
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550476/smoke3_wfsacx.png' className='h-[25px] sm:h-[25px] lg:h-5 ' alt='icon' />
+            </div>
+        </div>
+
+        <div className='px-2 sm:px-4 lg:px-8 z-3 mt-10 '>
+            <p className='w-full font-baserona text-white lg:text-[#EC0303] text-[15px] sm:text-[17px] lg:text-[32px] leading-2 '>READY TO JOIN</p>
+            <div className='flex items-center lg:gap-1 '>
+                <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] lg:text-[70px] leading-4 sm:leading-5 '>THE</p>
+                {/* web */}
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550470/globeRed3_dy3gdb.png' alt='icon' className='hidden lg:block h-[60px] w-auto object-cover ' />
+                {/* mobile */}
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/globe1_hvkmpd.png' alt='icon' className='lg:hidden h-[35px] w-auto object-cover ' />
+                {/* web */}
+                <p className='hidden lg:block font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] lg:text-[70px] leading-4 lg:leading-5 '>P</p>
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550472/rrr_fsmvxq.png' alt='icon' className='hidden lg:block h-[45px] w-auto object-cover ' />
+                <p className='hidden lg:block font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] lg:text-[70px] leading-4 lg:leading-5 '>IX</p>
+            </div>
+            {/* mobile */}
+            <div className='lg:hidden flex items-center gap-0 '>
+                <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] leading-4 sm:leading-5 '>P</p>
+                <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550471/redrrr_orzjny.png' alt='icon' className='h-[24px] sm:h-[40px] w-auto object-cover ' />
+                <p className='font-superRichExpanded text-[#EC0303] lg:text-white text-[35px] sm:text-[65px] leading-4 sm:leading-5 '>IX</p>
+            </div>
+            
+        </div>
+
+        <div className='px-2 sm:px-4 lg:px-8 flex items-center justify-start mt-4 sm:mt-7 lg:mt-auto z-3 '>
+            <p className='font-superRichExpanded text-[15px] lg:text-[20px] text-white uppercase '>N<span className="[font-feature-settings:'liga']">C@4</span> ABUJA</p>
+        </div>
+
+        <div className='px-2 sm:px-4 lg:px-8 mt-auto z-3 '>
+            <div className='mt-3 flex items-center gap-0 h-[49px] lg:h-[70px] w-full '>
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550466/ctaWhite_pbr1ft.png' alt='flag' className='hidden lg:block object-cover h-[70px] ' />
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/ctawSmall_gqoaz3.png' alt='flag' className='block lg:hidden object-cover h-[49px] ' />
+            <Link to='/register' onClick={(e) => handleLinkClick(e, '/register')} className='hover:bg-[#EC0303] bg-white h-full w-full p-1 flex items-center justify-center hover:text-white text-[#EC0303] text-[16px] lg:text-[24px] font-baserona font-light '>
+                START RACE
+            </Link>
+            </div>
+        </div>
+
+        {/* car */}
+        <div className='w-full h-[50%] lg:h-[70%] absolute bottom-0 z-1 flex '>
+            <img src='https://res.cloudinary.com/dumoghqlq/image/upload/v1795550467/smoke4_bglqps.png' alt='car' className='lg:h-full lg:w-full object-cover [mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] [-webkit-mask-image:linear-gradient(to_bottom,transparent_1px,black_3px)] h-full self-baseline animate-slideUp ' />
+        </div>
+
+        <div className='absolute w-full h-full z-7 inset-0 pointer-events-none flex flex-cols items-center justify-between '>
+            <div onClick={() => setIsModalOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white ml-2 sm:ml-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+            <div onClick={() => setIsModalBOpen(true)} className='p-1 w-1 h-1 bg-white/20 rounded-full ring-1 ring-white mr-2 sm:mr-10 animate-pulse cursor-pointer pointer-events-auto ' ></div>
+        </div>
+        <ModalPopup
+            isOpen={isModalOpen}
+            onClose={() => setIsModalOpen(false)}
+            src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563025/popUp3_wqjkku.png"
+            bottom={40}
+            right={80}
+            width={650}
+            height={500}
+            mwidth={280}
+            mheight={280}
+            title="ONE NETWORK"
+            text="Different entities. Different experiences. One AIESEC in Nigeria moving in the same direction."
+        />
+        <ModalPopupB
+            isOpen={isModalBOpen}
+            onClose={() => setIsModalBOpen(false)}
+            src="https://res.cloudinary.com/dumoghqlq/image/upload/v1795563025/popUp4_idix7s.png"
+            top={40}
+            left={80}
+            width={650}
+            height={500}
+            mwidth={280}
+            mheight={280}
+            title="WHERE WE MEET"
+            text="In the heart of Nigeria’s capital, the network comes together to connect, reflect and move forward."
+        />
+    </div>
+  )
+}
+
+export default Hero4

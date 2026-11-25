@@ -32,6 +32,88 @@
   --font-stretch-v4--font-feature-settings: "liga";
   --font-artegraLight: "ArtegraLight", Arial, sans-serif;
   --spacing: 10px;
+  --animate-slideUp: slideUp 2s ease-out forwards;
+  @keyframes slideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  --animate-slideDown: slideDown 0.7s ease-out forwards;
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  --animate-slideLeft: slideLeft 2s ease-out forwards;
+  @keyframes slideLeft {
+    0% {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  --animate-slideRight: slideRight 2s ease-out forwards;
+  @keyframes slideRight {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  --animate-loop: loop 1s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop2: loop2 2s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop2 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop3: loop3 0.7s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop3 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  --animate-loop4: loop4 2.5s 1.3s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+  @keyframes loop4 {
+    0% {
+      transform: translateY(-90%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 }
 
 input:-webkit-autofill,

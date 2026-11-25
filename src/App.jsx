@@ -1,14 +1,8 @@
-import './App.css'
-import Hero1 from './hero/hero1/Hero1'
-import MultiStepForm from './Registration/MultiStepForm'
+import './App.css';
+import Hero1 from './hero/hero1/Hero1';
 
 function App() {
-
-  return (
-    <>
-      <MultiStepForm onComplete={(all) => console.log("all answers:", all)} />
-    </>
-  )
+  return <Hero1 />;
 }
 
-export default App
+export default App;
