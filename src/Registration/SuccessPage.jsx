@@ -20,7 +20,7 @@ const MOBILE_FILES = {
   completed: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733511/Group_1597888839_4.png",
   theRace: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/the_race_1.png",
   briefing: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/Watch_out_for_the_briefing_and_get_qualified_for_the_1.png",
-  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/Group_1597888840_1.png.png",
+  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733905/Group_1597888840_2.png",
 };
 
 const OVERLAY = 0.5;
