@@ -9,12 +9,12 @@ export const SHARED_ASSETS = {
 
 // Layout defaults, override per step with `layout: { ... }`
 export const DEFAULT_LAYOUT = {
-  badgeRight: "7%", // NC Abuja logo on the photo (% of the photo)
+  badgeRight: "7%",
   badgeTop: "65.3%",
   badgeWidth: "17%",
-  mobileBgPosition: "97% center", // which part of the photo shows on mobile
-  bgAlignY: 0.8, // desktop photo vertical alignment: 0 = top, 1 = bottom
-  cardLogoRight: "6.5%", // NC Abuja logo on the card (% of the card)
+  mobileBgPosition: "97% center", 
+  bgAlignY: 0.8, 
+  cardLogoRight: "6.5%", 
   cardLogoTop: "9%",
   cardLogoWidth: "51%",
 };
@@ -35,17 +35,17 @@ const formatDate = (v) => {
 export const STEPS = [
   {
     id: "driver",
-     popups: [
-    {
-      dot: { top: "53.7%", left: "70.5%" },
-      dotMobile: { top: "78.7%", right: "42.8%" },
-      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643305/image_3613.png",
-      title: "THE STARTING GRID",
-      text: "Abuja sets the stage. The people of AIESEC in Nigeria bring the energy, ambition and purpose.",
-      top: 40, left: 400, width: 400, height: 550, // desktop modal
-      mwidth: 280, mheight: 280,                   // mobile modal
-    },
-  ],
+    popups: [
+      {
+        dot: { top: "53.7%", left: "70.5%" },
+        dotMobile: { top: "78.7%", right: "42.8%" },
+        src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643305/image_3613.png",
+        title: "THE STARTING GRID",
+        text: "Abuja sets the stage. The people of AIESEC in Nigeria bring the energy, ambition and purpose.",
+        top: 40, left: 400, width: 400, height: 550, 
+        mwidth: 280, mheight: 280,                   
+      },
+    ],
     assets: {
       bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_holding_helmet_bg.png",
       bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_holding_helmet_bg.png",
@@ -95,7 +95,7 @@ export const STEPS = [
         label: "Where should we deliver your race briefing?",
         placeholder: "Drop your driver telemetry email...",
         autoComplete: "email",
-        inputClassName: "font-sans tracking-normal", // digits and symbols in emails
+        inputClassName: "font-sans tracking-normal", 
         rules: {
           required: "Email is required",
           pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: "Enter a valid email" },
@@ -106,17 +106,17 @@ export const STEPS = [
 
   {
     id: "circuit",
-     popups: [
-    {
-      dot: { top: "43.7%", left: "85.5%" },
-      dotMobile: { top: "78.7%", right: "22.8%" },
-      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643601/image_3736_3.png",
-      title: "ARRIVAL",
-      text: "Standing along the approach to Abuja, Zuma Rock has become one of the most memorable sights associated with the journey into the capital.",
-      top: 40, left: 400, width: 738, height: 656, // desktop modal
-      mwidth: 280, mheight: 280,                   // mobile modal
-    },
-  ],
+    popups: [
+      {
+        dot: { top: "43.7%", left: "85.5%" },
+        dotMobile: { top: "78.7%", right: "22.8%" },
+        src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795643601/image_3736_3.png",
+        title: "ARRIVAL",
+        text: "Standing along the approach to Abuja, Zuma Rock has become one of the most memorable sights associated with the journey into the capital.",
+        top: 40, left: 400, width: 738, height: 656, 
+        mwidth: 280, mheight: 280,                   
+      },
+    ],
     assets: {
       bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626458/Driver_in_race_car_cockpit_back.png",
       bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626449/bg2mob.png",
@@ -139,7 +139,7 @@ export const STEPS = [
         label: "When did you first hit the circuit?",
         placeholder: "DD | MM | YYYY",
         inputMode: "numeric",
-        inputClassName: "font-sans tracking-normal", // the demo font is missing some digits
+        inputClassName: "font-sans tracking-normal", 
         sanitize: formatDate,
         minAge: 18, // under 18 = cannot apply
         rules: {
@@ -176,25 +176,26 @@ export const STEPS = [
 
   {
     id: "medical",
-     popups: [
-    {
-      dot: { top: "28.7%", left: "82.5%" },
-      dotMobile: { top: "80.7%", right: "72.8%" },
-      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795645289/image_3736_5.png",
-      title: "LANDMARK",
-      text: "With its soaring spire and distinctive neo-Gothic form, the National Christian Centre stands as one of Abuja’s most recognisable religious and architectural landmarks..",
-      top: 40, left: 400, width: 738, height: 640, // desktop modal
-      mwidth: 280, mheight: 280,                   // mobile modal
-    },
-  ],
+    popups: [
+      {
+        dot: { top: "28.7%", left: "82.5%" },
+        dotMobile: { top: "80.7%", right: "72.8%" },
+        src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795645289/image_3736_5.png",
+        title: "LANDMARK",
+        text: "With its soaring spire and distinctive neo-Gothic form, the National Christian Centre stands as one of Abuja’s most recognisable religious and architectural landmarks..",
+        top: 40, left: 400, width: 738, height: 640, 
+        mwidth: 280, mheight: 280,                   
+      },
+    ],
     assets: {
       bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626461/bg3.png",
       bgMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626451/bg3mob.png",
       title: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626087/Group_1597888829_6.png",
       titleMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/Group_1597888830_6.png",
     },
-    layout: { bgFit: "height", 
-              badgeTop: "63.9%", 
+    layout: {
+      bgFit: "height",
+      badgeTop: "63.9%",
     },
     fields: [
       {
@@ -213,15 +214,23 @@ export const STEPS = [
       },
       {
         name: "emergencyName",
-        type: "text",
-        label: "Who is your primary emergency member?",
-        placeholder: "Name of your next of kin",
-        rules: { required: "Name is required" },
+        type: "tel",
+        label: "Who is your primary emergency number?",
+        placeholder: "Number of your next of kin",
+        inputMode: "tel",
+        autoComplete: "tel",
+        inputClassName: "font-sans tracking-normal",
+        sanitize: phoneOnly,
+        rules: {
+          required: "Number is required",
+          minLength: { value: 7, message: "Minimum 7 digits" },
+          pattern: { value: /^\+?\d+$/, message: "Enter a valid phone number" },
+        },
       },
       {
         name: "emergencyRelation",
         type: "text",
-        label: "How is this emergency member linked to you?",
+        label: "How is this emergency number linked to you?",
         placeholder: "Parents, siblings, guardians...",
         rules: { required: "This field is required" },
       },
@@ -230,17 +239,17 @@ export const STEPS = [
 
   {
     id: "finish",
-     popups: [
-    {
-      dot: { top: "65.7%", left: "85.5%" },
-      dotMobile: { top: "68.7%", right: "32.8%" },
-      src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795644119/image_3736_4.png",
-      title: "LANDMARK",
-      text: "With its golden dome and four minarets, the Abuja National Mosque stands as one of the capital’s most distinctive architectural icons.",
-      top: 10, left: 400, width: 738, height: 654, // desktop modal
-      mwidth: 280, mheight: 280,                   // mobile modal
-    },
-  ],
+    popups: [
+      {
+        dot: { top: "65.7%", left: "85.5%" },
+        dotMobile: { top: "68.7%", right: "32.8%" },
+        src: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795644119/image_3736_4.png",
+        title: "LANDMARK",
+        text: "With its golden dome and four minarets, the Abuja National Mosque stands as one of the capital’s most distinctive architectural icons.",
+        top: 10, left: 400, width: 738, height: 654, 
+        mwidth: 280, mheight: 280,                   
+      },
+    ],
     ctaSound: "/audio/car-rev.mp3",
     assets: {
       bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626466/bg4.png",
@@ -250,15 +259,14 @@ export const STEPS = [
       cta: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/CTA_4.png",
       ctaMobile: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626085/CTA_6.png",
     },
-    ctaAlt: "Finish race",                     
+    ctaAlt: "Finish race",
     layout: {
       bgFitAlign: "edge",
       bgColor: "#080808",
-      badgeTop: "43.8%",                      // NC ABUJA, just under the title
+      badgeTop: "43.8%", 
 
-      // mobile: photo as a full-width strip glued to the bottom, like Figma
-      mobileBgBottom: { x: -240, w: 700 },    
-      mobileFadeTop: 25,                      // soft top edge of the strip (0 = hard edge)
+      mobileBgBottom: { x: -240, w: 700 },
+      mobileFadeTop: 25, 
     },
     fields: [
       {
@@ -286,5 +294,4 @@ export const STEPS = [
       },
     ],
   },
-
 ];

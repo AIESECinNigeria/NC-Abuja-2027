@@ -15,12 +15,12 @@ const DESKTOP_FILES = {
 const MOBILE_FILES = {
   bg: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626457/succbgmob.png",
   flag: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626459/successflag-mob.png",
-  youHave: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626461/You-have.png",
-  successfully: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/succ-mob.png",
-  completed: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626447/comp-mob.png",
-  theRace: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/the-race.png",
-  briefing: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795627973/brief-mob.png",
-  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795626460/success-prix.png",
+  youHave: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/You_have_1.png",
+  successfully: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/Group_1597888849_1.png",
+  completed: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733511/Group_1597888839_4.png",
+  theRace: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/the_race_1.png",
+  briefing: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/Watch_out_for_the_briefing_and_get_qualified_for_the_1.png",
+  prix: "https://res.cloudinary.com/qzyxmtgh/image/upload/v1795733420/Group_1597888840_1.png.png",
 };
 
 const OVERLAY = 0.5;
