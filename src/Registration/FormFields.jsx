@@ -1,21 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 
-/* Dropdown arrow image: just change the URL */
 export const DROPDOWN_ICON_SRC = '/images/Arrow.svg';
 
-// Box without a border colour (the colour is chosen per state in boxState below)
 const fieldBoxBase = 'w-full border px-[16px] py-[16px] lg:px-[calc(16_*_var(--k,1px))] lg:py-[calc(16_*_var(--k,1px))] backdrop-blur-sm text-left transition-colors';
 
-
-// Kept for any other component that imports it
 export const fieldBox = `${fieldBoxBase} border-white/20`;
 export const fieldLabel =
   'block font-baserona text-[13px] sm:text-[15px] lg:text-[length:calc(20_*_var(--k,1px))] font-normal tracking-wide uppercase leading-tight lg:leading-none';
 export const fieldInput = 'block w-full bg-transparent outline-none font-artegraLight text-[12px] sm:text-[14px] lg:text-[length:calc(19_*_var(--k,1px))] lg:h-[calc(24_*_var(--k,1px))] tracking-wide placeholder:text-white/55 text-white uppercase'
 
-// The demo font draws ( ) & / etc. as commas or blanks, so anything that is not a
-// plain letter, digit or space is drawn in Arial instead.
 function SafeText({ children }) {
   const parts = String(children ?? '').split(/([^A-Za-z0-9 ]+)/);
   return parts.map((part, i) =>
@@ -29,9 +23,6 @@ function SafeText({ children }) {
   );
 }
 
-// One place for the box + underline styling, shared by TextField and DropdownField.
-// Only ONE border colour and ONE background are ever applied, so nothing conflicts.
-// `shake` is an optional animation class ('shake-a' / 'shake-b', see motion.css).
 function boxState({ filled, invalid, variant, shake = '' }) {
   const border = invalid
     ? 'border-[#EC0303]'
@@ -49,7 +40,6 @@ function boxState({ filled, invalid, variant, shake = '' }) {
 
   const line = filled ? 'border-white' : 'border-white/50';
 
-  // Figma's grey field (white 20% fill, white 50% stroke) = the active field
   const focus = 'focus-within:bg-white/20 focus-within:border-white/50';
 
   return { box: `${fieldBoxBase} ${border} ${bg} ${focus} ${shake}`, line };
@@ -126,7 +116,6 @@ export function DropdownField({
   const [open, setOpen] = useState(false);
   const boxRef = useRef(null);
 
-  // close on outside click or Escape
   useEffect(() => {
     if (!open) return undefined;
     const onDown = (e) => {
@@ -143,7 +132,6 @@ export function DropdownField({
     };
   }, [open]);
 
-  // same box + underline styling as TextField (grey when filled)
   const { box, line } = boxState({ filled, invalid, variant, shake });
 
   return (
@@ -159,7 +147,6 @@ export function DropdownField({
         >
           <label className={fieldLabel}>{label}</label>
 
-          {/* value row (closed) or options list (open), always on the field's own background */}
           <div
             className={`relative border-b ${
               open
@@ -204,8 +191,6 @@ export function DropdownField({
               </div>
             )}
 
-            {/* arrow: always visible, flips when the list opens.
-                Sits on the value row when closed, and on the first option when open. */}
             <div
               aria-hidden
               className={`pointer-events-none absolute top-0 flex items-center ${

@@ -30,7 +30,6 @@ function toIntlPhone(value) {
   return digits;
 }
 
-// left side: backend key, right side: the field name in formSteps.js
 export function buildPayload(a) {
   const role = clean(a.role);
 
@@ -53,7 +52,6 @@ export function buildPayload(a) {
   };
 }
 
-// FastAPI sends errors as { detail: "text" } or { detail: [{ loc, msg }] }
 function readError(body, status) {
   const d = body?.detail;
   if (typeof d === "string") return d;

@@ -592,7 +592,6 @@ export default function FormStep({ step, defaultValues, onNext }) {
 
       <StepPopups popups={step.popups} />
 
-      {/* alignment helper readout (only with ?align in the URL, dev server only) */}
       {align && (
         <div className="fixed bottom-[12px] left-[12px] z-50 max-w-[340px] rounded-[6px] bg-black/85 p-[12px] font-mono text-[12px] leading-[1.5] text-white">
           <div>Arrows move, [ ] resize, hold Shift for bigger steps, 0 resets</div>

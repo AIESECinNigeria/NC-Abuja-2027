@@ -137,7 +137,7 @@ export const STEPS = [
         name: "firstRaceDate",
         type: "text",
         label: "When did you first hit the circuit?",
-        placeholder: "DD | MM | YYYY",
+        placeholder: "What's your date of birth",
         inputMode: "numeric",
         inputClassName: "font-sans tracking-normal", 
         sanitize: formatDate,

@@ -46,7 +46,6 @@ export default function StepPopups({ popups }) {
         })}
       </div>
 
-      {/* rendered on <body> so the step's fade/transform animations can't trap the fixed overlay */}
       {open &&
         createPortal(
           <ModalPopup
